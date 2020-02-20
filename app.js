@@ -74,8 +74,7 @@ function startGame() {
     gameInPlay = true;
     whosTurn = 0
     // runs until winner or draw
-    while (gameInPlay == true) {
-        // who's turn is it
+    function play() {
         if (whosTurn == 0) {
             playerInPlay = playerOne;
             whosTurn = 1;
@@ -90,7 +89,12 @@ function startGame() {
         addCardToPile(card);
         // checks if all cards have been taken
         checkIfDraw();
+        if( gameInPlay == true ){
+            // delay
+            setTimeout( play, Math.floor(Math.random() * 2000) );
+        }
     }
+    play();
 }
 
 // adds card to plile
